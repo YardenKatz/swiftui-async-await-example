@@ -16,7 +16,7 @@ struct PeopleListModel: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable {
+struct Person: Codable, Hashable {
     let name, height: String
     let mass, hairColor: String?
     let skinColor, eyeColor, birthYear: String?

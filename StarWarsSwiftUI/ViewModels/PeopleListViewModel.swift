@@ -36,7 +36,6 @@ final class PeoplListViewModel: ObservableObject {
             }.store(in: &cancellableSet)
     }
     
-    
     func createAlert( with error: NetworkError ) {
         peopleListLoadingError = error.backendError == nil ? error.initialError.localizedDescription : error.backendError!.message
         self.showAlert = true
