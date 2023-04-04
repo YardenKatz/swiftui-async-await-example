@@ -16,7 +16,7 @@ final class PeoplListViewModel: ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: NetworkManagerProtocol
     
-    init( dataManager: NetworkManagerProtocol = NetworkManager.shared) {
+    init(dataManager: NetworkManagerProtocol = NetworkManager.shared) {
         self.dataManager = dataManager
         getPeopleList()
     }
