@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,15 @@
 		879E54D329DC025A0071D0A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879E54D229DC025A0071D0A1 /* Preview Assets.xcassets */; };
 		879E54DE29DC025A0071D0A1 /* StarWarsSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E54DD29DC025A0071D0A1 /* StarWarsSwiftUITests.swift */; };
 		879E54E929DC025A0071D0A1 /* StarWarsSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E54E829DC025A0071D0A1 /* StarWarsSwiftUIUITests.swift */; };
+		879E54F929DC039B0071D0A1 /* PeopleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E54F829DC039B0071D0A1 /* PeopleListModel.swift */; };
+		879E54FA29DC039B0071D0A1 /* PeopleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E54F829DC039B0071D0A1 /* PeopleListModel.swift */; };
+		879E54FD29DC04D80071D0A1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 879E54FC29DC04D80071D0A1 /* Alamofire */; };
+		879E550029DC07300071D0A1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E54FF29DC07300071D0A1 /* NetworkManager.swift */; };
+		879E550129DC07300071D0A1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E54FF29DC07300071D0A1 /* NetworkManager.swift */; };
+		879E550329DC0AFF0071D0A1 /* ErrorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550229DC0AFF0071D0A1 /* ErrorModels.swift */; };
+		879E550429DC0AFF0071D0A1 /* ErrorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550229DC0AFF0071D0A1 /* ErrorModels.swift */; };
+		879E550729DC0DC50071D0A1 /* PeopleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550629DC0DC50071D0A1 /* PeopleListViewModel.swift */; };
+		879E550829DC0DC50071D0A1 /* PeopleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550629DC0DC50071D0A1 /* PeopleListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +54,10 @@
 		879E54E429DC025A0071D0A1 /* StarWarsSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		879E54E829DC025A0071D0A1 /* StarWarsSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsSwiftUIUITests.swift; sourceTree = "<group>"; };
 		879E54EA29DC025A0071D0A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		879E54F829DC039B0071D0A1 /* PeopleListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListModel.swift; sourceTree = "<group>"; };
+		879E54FF29DC07300071D0A1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		879E550229DC0AFF0071D0A1 /* ErrorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModels.swift; sourceTree = "<group>"; };
+		879E550629DC0DC50071D0A1 /* PeopleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879E54FD29DC04D80071D0A1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				879E54CB29DC02580071D0A1 /* StarWarsSwiftUIApp.swift */,
-				879E54CD29DC02580071D0A1 /* ContentView.swift */,
+				879E54FE29DC06930071D0A1 /* Services */,
+				879E54F729DC02F20071D0A1 /* Models */,
+				879E550529DC0D790071D0A1 /* ViewModels */,
+				879E54F629DC02E80071D0A1 /* Views */,
 				879E54CF29DC025A0071D0A1 /* Assets.xcassets */,
 				879E54D429DC025A0071D0A1 /* Info.plist */,
 				879E54D129DC025A0071D0A1 /* Preview Content */,
@@ -130,6 +147,39 @@
 			path = StarWarsSwiftUIUITests;
 			sourceTree = "<group>";
 		};
+		879E54F629DC02E80071D0A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				879E54CD29DC02580071D0A1 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		879E54F729DC02F20071D0A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				879E54F829DC039B0071D0A1 /* PeopleListModel.swift */,
+				879E550229DC0AFF0071D0A1 /* ErrorModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		879E54FE29DC06930071D0A1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				879E54FF29DC07300071D0A1 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		879E550529DC0D790071D0A1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				879E550629DC0DC50071D0A1 /* PeopleListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +196,9 @@
 			dependencies = (
 			);
 			name = StarWarsSwiftUI;
+			packageProductDependencies = (
+				879E54FC29DC04D80071D0A1 /* Alamofire */,
+			);
 			productName = StarWarsSwiftUI;
 			productReference = 879E54C829DC02580071D0A1 /* StarWarsSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +270,9 @@
 				Base,
 			);
 			mainGroup = 879E54BF29DC02580071D0A1;
+			packageReferences = (
+				879E54FB29DC04D80071D0A1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 879E54C929DC02580071D0A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +315,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879E550329DC0AFF0071D0A1 /* ErrorModels.swift in Sources */,
+				879E550729DC0DC50071D0A1 /* PeopleListViewModel.swift in Sources */,
+				879E550029DC07300071D0A1 /* NetworkManager.swift in Sources */,
+				879E54F929DC039B0071D0A1 /* PeopleListModel.swift in Sources */,
 				879E54CE29DC02580071D0A1 /* ContentView.swift in Sources */,
 				879E54CC29DC02580071D0A1 /* StarWarsSwiftUIApp.swift in Sources */,
 			);
@@ -268,6 +328,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879E550129DC07300071D0A1 /* NetworkManager.swift in Sources */,
+				879E54FA29DC039B0071D0A1 /* PeopleListModel.swift in Sources */,
+				879E550829DC0DC50071D0A1 /* PeopleListViewModel.swift in Sources */,
+				879E550429DC0AFF0071D0A1 /* ErrorModels.swift in Sources */,
 				879E54DE29DC025A0071D0A1 /* StarWarsSwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		879E54FB29DC04D80071D0A1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		879E54FC29DC04D80071D0A1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 879E54FB29DC04D80071D0A1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 879E54C029DC02580071D0A1 /* Project object */;
 }
