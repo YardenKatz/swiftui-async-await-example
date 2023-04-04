@@ -5,6 +5,7 @@
 //   let peopleListModel = try? JSONDecoder().decode(PeopleListModel.self, from: jsonData)
 
 import Foundation
+import SwiftUI
 
 // MARK: - PeopleListModel
 struct PeopleListModel: Codable {

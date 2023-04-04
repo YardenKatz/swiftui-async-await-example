@@ -10,7 +10,7 @@ import Combine
 import Alamofire
 
 protocol NetworkManagerProtocol {
-    func fetchPeopleList() -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never>
+    func fetchPeopleList(url: String) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never>
 }
 
 struct NetworkManager {
@@ -19,7 +19,7 @@ struct NetworkManager {
 
     static let baseURL = "https://swapi.dev/api"
     
-    private enum Endpoint {
+    enum Endpoint {
         case people
         
         var page : Int {
@@ -41,8 +41,7 @@ struct NetworkManager {
 }
 
 extension NetworkManager: NetworkManagerProtocol {
-    func fetchPeopleList() -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never> {
-        let url = Endpoint.people.url
+    func fetchPeopleList(url: String = Endpoint.people.url) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never> {
         
         return AF.request(url,
                           method: .get)
