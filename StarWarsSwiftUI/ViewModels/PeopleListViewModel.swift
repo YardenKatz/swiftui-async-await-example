@@ -36,16 +36,13 @@ final class PeoplListViewModel: ObservableObject {
                 } else {
                     self.peopleList.append(contentsOf: dataResponse.value!.results ?? [])
                     self.next = dataResponse.value!.next
-                    print(dataResponse.value!.results ?? [])
                 }
                 self.isLoading = false
             }.store(in: &cancellableSet)
     }
     
     func createAlert( with error: NetworkError ) {
-        // TODO: check this
-        peopleListLoadingError = error.backendError == nil ? error.initialError.localizedDescription : error.backendError!.message
-        self.showAlert = true
+        print(error) // log
     }
 }
 

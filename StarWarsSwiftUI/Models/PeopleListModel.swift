@@ -17,13 +17,8 @@ struct PeopleListModel: Codable {
 // MARK: - Result
 struct Person: Codable, Hashable {
     let name: String
-    let height, mass, hairColor: String?
-    let skinColor, eyeColor, birthYear: String?
-    let gender: String?
-    let homeworld: String?
+    let height, mass, hairColor, skinColor, eyeColor, birthYear, gender, homeworld, created, edited, url: String?
     let films, species, vehicles, starships: [String]?
-    let created, edited: String?
-    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case name, height, mass
