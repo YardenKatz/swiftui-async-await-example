@@ -25,6 +25,12 @@ struct PeopleList: View {
                             }
                         }
                     }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.favorite = person.name
+                        print("tap")
+                    }
+                    .listRowBackground(person.name == viewModel.favorite ? Color.gray : Color.white)
             }
             if viewModel.isLoading {
                 VStack {

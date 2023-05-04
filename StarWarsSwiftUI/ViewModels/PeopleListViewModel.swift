@@ -16,6 +16,8 @@ final class PeoplListViewModel: ObservableObject {
     @Published var peopleListLoadingError: String = ""
     @Published var showAlert: Bool = false
     @Published var isLoading = false
+    @Published var favorite: String?
+    
 
     private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: NetworkManagerProtocol
