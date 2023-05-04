@@ -17,8 +17,8 @@ struct PersonView: View {
             
             Spacer()
             
-            Text(person.height ?? "unknown")
-                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Text(person.height ?? "na")
+                .frame(width: 80, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Rectangle().stroke())
         }
         

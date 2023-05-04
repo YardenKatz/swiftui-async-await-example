@@ -15,6 +15,7 @@ final class PeoplListViewModel: ObservableObject {
     @Published var next: String?
     @Published var peopleListLoadingError: String = ""
     @Published var showAlert: Bool = false
+    @Published var isLoading = false
 
     private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: NetworkManagerProtocol
@@ -25,6 +26,7 @@ final class PeoplListViewModel: ObservableObject {
     }
     
     func getPeopleList(url: String? = nil) {
+        isLoading = true
         dataManager.fetchPeopleList(url: url ?? dataManager.baseUrl())
             .sink { (dataResponse) in
                 if dataResponse.error != nil {
@@ -34,10 +36,12 @@ final class PeoplListViewModel: ObservableObject {
                     self.next = dataResponse.value!.next
                     print(dataResponse.value!.results ?? [])
                 }
+                self.isLoading = false
             }.store(in: &cancellableSet)
     }
     
     func createAlert( with error: NetworkError ) {
+        // TODO: check this
         peopleListLoadingError = error.backendError == nil ? error.initialError.localizedDescription : error.backendError!.message
         self.showAlert = true
     }
