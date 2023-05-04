@@ -25,13 +25,14 @@ final class PeoplListViewModel: ObservableObject {
     }
     
     func getPeopleList(url: String? = nil) {
-        dataManager.fetchPeopleList(url: url ?? Constants.baseEndpoint)
+        dataManager.fetchPeopleList(url: url ?? dataManager.baseUrl())
             .sink { (dataResponse) in
                 if dataResponse.error != nil {
                     self.createAlert(with: dataResponse.error!)
                 } else {
                     self.peopleList.append(contentsOf: dataResponse.value!.results ?? [])
                     self.next = dataResponse.value!.next
+                    print(dataResponse.value!.results ?? [])
                 }
             }.store(in: &cancellableSet)
     }

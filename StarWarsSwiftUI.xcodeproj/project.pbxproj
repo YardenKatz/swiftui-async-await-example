@@ -26,8 +26,6 @@
 		879E550B29DC16290071D0A1 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550929DC16290071D0A1 /* PersonView.swift */; };
 		879E550D29DC19FF0071D0A1 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 879E550C29DC19FF0071D0A1 /* SampleData.json */; };
 		879E550E29DC19FF0071D0A1 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 879E550C29DC19FF0071D0A1 /* SampleData.json */; };
-		879E551029DC2E570071D0A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550F29DC2E570071D0A1 /* Constants.swift */; };
-		879E551129DC2E570071D0A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E550F29DC2E570071D0A1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +64,6 @@
 		879E550629DC0DC50071D0A1 /* PeopleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewModel.swift; sourceTree = "<group>"; };
 		879E550929DC16290071D0A1 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		879E550C29DC19FF0071D0A1 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; };
-		879E550F29DC2E570071D0A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				879E54FF29DC07300071D0A1 /* NetworkManager.swift */,
-				879E550F29DC2E570071D0A1 /* Constants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -344,7 +340,6 @@
 				879E54CE29DC02580071D0A1 /* PeopleView.swift in Sources */,
 				879E54CC29DC02580071D0A1 /* StarWarsSwiftUIApp.swift in Sources */,
 				879E550A29DC16290071D0A1 /* PersonView.swift in Sources */,
-				879E551029DC2E570071D0A1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +351,6 @@
 				879E54FA29DC039B0071D0A1 /* PeopleListModel.swift in Sources */,
 				879E550829DC0DC50071D0A1 /* PeopleListViewModel.swift in Sources */,
 				879E550B29DC16290071D0A1 /* PersonView.swift in Sources */,
-				879E551129DC2E570071D0A1 /* Constants.swift in Sources */,
 				879E550429DC0AFF0071D0A1 /* ErrorModels.swift in Sources */,
 				879E54DE29DC025A0071D0A1 /* StarWarsSwiftUITests.swift in Sources */,
 			);

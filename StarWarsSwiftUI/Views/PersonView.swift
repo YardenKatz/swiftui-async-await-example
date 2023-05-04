@@ -12,18 +12,17 @@ struct PersonView: View {
     
     var body: some View {
         HStack {
-            Spacer()
             
             Text(person.name)
             
             Spacer()
             
-            Text(person.height)
+            Text(person.height ?? "unknown")
                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Rectangle().stroke())
-            Spacer()
         }
-        .frame(height: CGFloat(Double(person.height) ?? 50))
+        
+        .frame(height: CGFloat(Double(person.height ?? "") ?? 50))
     }
 }
 

@@ -10,17 +10,16 @@ import SwiftUI
 // MARK: - PeopleListModel
 struct PeopleListModel: Codable {
     let count: Int?
-    let next: String?
-    let previous: JSONNull?
+    let next, previous: String?
     let results: [Person]?
 }
 
 // MARK: - Result
 struct Person: Codable, Hashable {
-    let name, height: String
-    let mass, hairColor: String?
+    let name: String
+    let height, mass, hairColor: String?
     let skinColor, eyeColor, birthYear: String?
-    let gender: Gender?
+    let gender: String?
     let homeworld: String?
     let films, species, vehicles, starships: [String]?
     let created, edited: String?
@@ -34,12 +33,6 @@ struct Person: Codable, Hashable {
         case birthYear
         case gender, homeworld, films, species, vehicles, starships, created, edited, url
     }
-}
-
-enum Gender: String, Codable {
-    case female = "female"
-    case male = "male"
-    case nA = "n/a"
 }
 
 // MARK: - Encode/decode helpers

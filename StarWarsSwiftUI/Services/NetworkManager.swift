@@ -11,10 +11,11 @@ import Alamofire
 
 protocol NetworkManagerProtocol {
     func fetchPeopleList(url: String) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never>
+    func baseUrl() -> String
 }
 
 struct NetworkManager {
-    static let shared: NetworkManagerProtocol = NetworkManager()
+    static let shared: NetworkManager = NetworkManager()
     private init() {}
 
     static let baseURL = "https://swapi.dev/api"
@@ -22,13 +23,9 @@ struct NetworkManager {
     enum Endpoint {
         case people
         
-        var page : Int {
-            1
-        }
-        
         var path: String {
             switch self {
-            case .people: return "/people/?page=\(page)"
+            case .people: return "/people/?page=1"
             }
         }
         
@@ -41,7 +38,7 @@ struct NetworkManager {
 }
 
 extension NetworkManager: NetworkManagerProtocol {
-    func fetchPeopleList(url: String = Endpoint.people.url) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never> {
+    func fetchPeopleList(url: String) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never> {
         
         return AF.request(url, method: .get)
             .validate()
@@ -54,6 +51,10 @@ extension NetworkManager: NetworkManagerProtocol {
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+    
+    func baseUrl() -> String {
+        Endpoint.people.url
     }
 }
 
