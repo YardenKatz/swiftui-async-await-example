@@ -43,8 +43,7 @@ struct NetworkManager {
 extension NetworkManager: NetworkManagerProtocol {
     func fetchPeopleList(url: String = Endpoint.people.url) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never> {
         
-        return AF.request(url,
-                          method: .get)
+        return AF.request(url, method: .get)
             .validate()
             .publishDecodable(type: PeopleListModel.self)
             .map { response in

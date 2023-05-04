@@ -118,6 +118,7 @@
 		879E54CA29DC02580071D0A1 /* StarWarsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				87BFE01B2A03CE540072C735 /* Resources */,
 				879E54CB29DC02580071D0A1 /* StarWarsSwiftUIApp.swift */,
 				879E54FE29DC06930071D0A1 /* Services */,
 				879E54F729DC02F20071D0A1 /* Models */,
@@ -170,7 +171,6 @@
 			children = (
 				879E54F829DC039B0071D0A1 /* PeopleListModel.swift */,
 				879E550229DC0AFF0071D0A1 /* ErrorModels.swift */,
-				879E550C29DC19FF0071D0A1 /* SampleData.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +190,14 @@
 				879E550629DC0DC50071D0A1 /* PeopleListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		87BFE01B2A03CE540072C735 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				879E550C29DC19FF0071D0A1 /* SampleData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
