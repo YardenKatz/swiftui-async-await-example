@@ -8,14 +8,12 @@
 import Foundation
 import SwiftUI
 
-@MainActor final class PeoplListViewModel: ObservableObject {
+final class PeoplListViewModel: ObservableObject {
     
-    @Published var peopleList =  [Person]()
+    @MainActor @Published var peopleList =  [Person]()
     @Published var next: String?
-    @Published var peopleListLoadingError: String = ""
-    @Published var showAlert: Bool = false
-    @Published var isLoading = false
     @Published var favorite: String?
+    @MainActor @Published var isLoading = false
     
     var dataManager: NetworkManagerProtocol
     
@@ -24,17 +22,25 @@ import SwiftUI
     }
     
     func getPeopleList(url: String? = nil) async {
-        isLoading = true
-
+        await updateIsLoading(true)
+        
         let dataResponse = await dataManager.fetchPeopleList(url: url ?? dataManager.baseUrl())
         if let error = dataResponse.error  {
             createAlert(with: error)
         } else {
-            peopleList.append(contentsOf: dataResponse.value!.results ?? [])
-            next = dataResponse.value!.next
+            await updateModel(dataResponse.value?.results, next: dataResponse.value?.next)
         }
         
-        isLoading = false
+        await updateIsLoading(false)
+    }
+    
+    @MainActor func updateIsLoading(_ isLoading: Bool) {
+        self.isLoading = isLoading
+    }
+    
+    @MainActor func updateModel(_ peopleList: [Person]?, next: String?) {
+        self.peopleList.append(contentsOf: peopleList ?? [])
+        self.next = next
     }
     
     func createAlert( with error: Error ) {
