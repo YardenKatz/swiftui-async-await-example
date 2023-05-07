@@ -7,9 +7,8 @@
 
 import Foundation
 import SwiftUI
-import Combine
 
-final class PeoplListViewModel: ObservableObject {
+@MainActor final class PeoplListViewModel: ObservableObject {
     
     @Published var peopleList =  [Person]()
     @Published var next: String?
@@ -18,30 +17,27 @@ final class PeoplListViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var favorite: String?
     
-
-    private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: NetworkManagerProtocol
     
     init(dataManager: NetworkManagerProtocol = NetworkManager.shared) {
         self.dataManager = dataManager
-        getPeopleList()
     }
     
-    func getPeopleList(url: String? = nil) {
+    func getPeopleList(url: String? = nil) async {
         isLoading = true
-        dataManager.fetchPeopleList(url: url ?? dataManager.baseUrl())
-            .sink { (dataResponse) in
-                if dataResponse.error != nil {
-                    self.createAlert(with: dataResponse.error!)
-                } else {
-                    self.peopleList.append(contentsOf: dataResponse.value!.results ?? [])
-                    self.next = dataResponse.value!.next
-                }
-                self.isLoading = false
-            }.store(in: &cancellableSet)
+
+        let dataResponse = await dataManager.fetchPeopleList(url: url ?? dataManager.baseUrl())
+        if let error = dataResponse.error  {
+            createAlert(with: error)
+        } else {
+            peopleList.append(contentsOf: dataResponse.value!.results ?? [])
+            next = dataResponse.value!.next
+        }
+        
+        isLoading = false
     }
     
-    func createAlert( with error: NetworkError ) {
+    func createAlert( with error: Error ) {
         print(error) // log
     }
 }

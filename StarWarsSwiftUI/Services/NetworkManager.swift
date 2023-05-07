@@ -10,7 +10,7 @@ import Combine
 import Alamofire
 
 protocol NetworkManagerProtocol {
-    func fetchPeopleList(url: String) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never>
+    func fetchPeopleList(url: String) async -> DataResponse<PeopleListModel, AFError>
     func baseUrl() -> String
 }
 
@@ -38,23 +38,21 @@ struct NetworkManager {
 }
 
 extension NetworkManager: NetworkManagerProtocol {
-    func fetchPeopleList(url: String) -> AnyPublisher<DataResponse<PeopleListModel, NetworkError>, Never> {
-        
-        return AF.request(url, method: .get)
+    func fetchPeopleList(url: String) async -> DataResponse<PeopleListModel, AFError> {
+        let dataTask = AF.request(url)
             .validate()
-            .publishDecodable(type: PeopleListModel.self)
-            .map { response in
-                response.mapError { error in
-                    let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                    return NetworkError(initialError: error, backendError: backendError)
-                }
-            }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+            .serializingDecodable(PeopleListModel.self)
+        let response = await dataTask.response
+        
+        return response
     }
     
     func baseUrl() -> String {
         Endpoint.people.url
+    }
+    
+    func log(_ error: Error) {
+        print(error)
     }
 }
 
